@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+  <script src="app/main.js" type="text/javascript"/>
+  <title>Document</title>
+</head>
+<body>
+  <div class="wrapper" ng-app="Heroes"ng-controller="myCtrl" >
+    <div class="" ng-hide="showMe" ng-controller="heroes_arr">
+      <h1>Tour of Heroes</h1>
+      <button type="button" name="button">Dashboard</button>
+      <button type="button" name="button">Heroes</button>
+      <div class="heroes">
+        <h4>Top heroes</h2>
+        <ul class="heroes-arr">
+          <li ng-repeat="heroe in heroes" ng-click="">
+            <p class="entry">{{heroe.name}}</p>
+          </li>
+        </ul>
+      </div>
+      <div class="heroes-search" ng-controller="search_controller">
+        <h4>Heroes serch</h2>
+        <input type="text" ng-model="name">
+      </div>
+    </div>
+  </div>
+</body>
+<script src="" type="text/javascript"/>
+<script src="" type="text/javascript"/>
+
+
+</html>
