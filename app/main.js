@@ -51,7 +51,7 @@ search_app.controller('main', function($scope, $log) {
         id:"20"
       }
     ]
-    console.log($scope.heroes[0]['id']);
+    // console.log($scope.heroes[0]['id']);
     $scope.printHeroes = function(){
       var heroesArr =[]
       for (var i = 0; $scope.heroes[i]; i++){
@@ -64,6 +64,7 @@ search_app.controller('main', function($scope, $log) {
       return heroesArr;
     }
     $scope.heroes_4 = $scope.printHeroes()
+//displaying of forms
 
     $scope.showHeroes = function () {
       $scope.apperaMain = false;
@@ -75,4 +76,12 @@ search_app.controller('main', function($scope, $log) {
       $scope.apperaHeroes = false;
       console.log('hhh');
     }
+
+    $scope.clickCard = function () {
+      $('ul li').click(function() {
+        var target = $(this).attr('data-name');
+      }
+      console.log($('#hroes-cards li').attr('data-options'));
+    }
+
 });

@@ -1,54 +1,54 @@
 <!DOCTYPE html>
-<html lang="en" >
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="stylesheet" href="css/style.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-  <script src="app/main.js" type="text/javascript"/>
-  <title>Document</title>
-</head>
-<body>
-  <div class="wrapper" ng-app="Heroes"ng-controller="myCtrl" >
-    <div class=""  ng-controller="main">
-      <h1>Tour of Heroes</h1>
-      <button type="button" name="button" ng-click="showMain()" ng-model ="showDeshboard">Dashboard</button>
-      <button type="button" name="button" ng-click="showHeroes()" >Heroes</button>
-      <div class="main-window" ng-show = "apperaMain">
-        <div class="heroes">
-          <h4>Top heroes</h2>
-          <ul class="heroes-arr">
-            <li ng-repeat="heroe in heroes_4" ng-click="">
-              <p class="entry">{{heroe.name}}</p>
-            </li>
-          </ul>
-        </div>
-        <div class="heroes-search" ng-controller="search_controller">
-          <h4>Heroes serch</h2>
-          <input type="text" ng-model="name">
-        </div>
-      </div>
-      <div class="my-heroes" ng-show="apperaHeroes">
-        <h4>My heroes</h4>
-        <ul>
-          <li ng-repeat="heroe in heroes" ng-click="">
-            <div class="descr">
-              <div class="id">{{heroe.id}}</div>
-              <div class="name">{{heroe.name}}</div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="app/main.js" type="text/javascript"/>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="wrapper" ng-app="Heroes" ng-controller="myCtrl">
+            <div class="" ng-controller="main">
+                <h1>Tour of Heroes</h1>
+                <button type="button" name="button" ng-click="showMain()" ng-model="showDeshboard">Dashboard</button>
+                <button type="button" name="button" ng-click="showHeroes()">Heroes</button>
+                <div class="main-window" ng-show="apperaMain">
+                    <div class="heroes">
+                        <h4>Top heroes</h2>
+                        <ul class="heroes-arr" id = "hroes-cards">
+                            <li ng-repeat="heroe in heroes_4" ng-click="clickCard()" data-options={{heroe.id}}>
+                                <p class="entry">{{heroe.name}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="heroes-search" ng-controller="search_controller">
+                        <h4>Heroes serch</h2>
+                        <input type="text" ng-model="name">
+                    </div>
+                </div>
+                <div class="my-heroes" ng-show="apperaHeroes">
+                    <h4>My heroes</h4>
+                    <ul>
+                        <li ng-repeat="heroe in heroes">
+                            <div class="descr">
+                                <div class="id">{{heroe.id}}</div>
+                                <div class="name">{{heroe.name}}</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="" ng-show="apperaDeshboard">
+                    dasdcsdfc
+                </div>
             </div>
-          </li>
-        </ul>
-      </div>
-      <div class="" ng-show="apperaDeshboard">
-        dasdcsdfc
-      </div>
-    </div>
 
-  </div>
-</body>
-<script src="" type="text/javascript"/>
-<script src="" type="text/javascript"/>
-
+        </div>
+    </body>
+    <script src="" type="text/javascript"/>
+    <script src="" type="text/javascript"/>
 
 </html>
