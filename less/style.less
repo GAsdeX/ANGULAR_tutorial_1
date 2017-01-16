@@ -1,11 +1,16 @@
 // out: ../css/style.css, sourcemap: true, compress: true
 
-body , li{
+body , li, ul, p, input{
     margin: 0;
     padding: 0;
     text-decoration: none;
     list-style: none;
     font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+}
+
+input {
+  display: inline-block;
+  padding: 7px 15px;
 }
 
 .wrapper {
@@ -30,10 +35,6 @@ body , li{
         }
     }
 
-    h1 {}
-
-    h4 {}
-
     .main-window {
       ul {
           width: 100%;
@@ -56,34 +57,92 @@ body , li{
               }
           }
       }
+      .heroes-search {
+        max-width: 200px;
+        input {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        ul {
+          display: block;
+          width: 100%;
+          box-sizing: border-box;
+          border: 1px solid gray;
+          li {
+            display: block;
+            width: 100%;
+            color: black;
+            padding: 5px;
+            border-bottom: 1px solid #ccc;
+            &:last-child {
+              border: 0;
+            }
+            p {
+              font-size: 12px;
+              text-align: left;
+            }
+          }
+        }
+      }
     }
-
-
     .my-heroes {
       height: auto;
+      .add-hero {
+        display: block;
+        .name {
+          margin-bottom: 20px;
+          display: inline-block;
+        }
+        button {
+          border: 0;
+
+        }
+      }
       ul {
         display: block;
         li {
+          cursor: pointer;
           & .descr  > * {
             display: inline-block;
             padding: 7px 15px;
           }
           margin-bottom: 10px;
           .descr {
-            display: flex;
+            display: inline-block;
             .id {
+              min-width: 20px;
               background: #abc123;
               border-top-left-radius: 4px;
               border-bottom-left-radius: 4px;
             }
             .name{
               background: #bbb;
+              transform: translateX(-5px);
               width: 120px;
               text-align: left;
               border-top-right-radius: 4px;
               border-bottom-right-radius:  4px;
             }
           }
+        }
+      }
+    }
+    .heroe-settings {
+      display: block;
+      .settings {
+        margin-top:20px;
+        .before {
+          display: inline-block;
+          width: 70px;
+          color: #123abc;
+        }
+        .hero-id {
+          display: inline-block;
+          color: grey;
+        }
+        input {
+          display: inline-block;
+          padding: 7px 15px;
         }
       }
     }

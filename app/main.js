@@ -4,54 +4,45 @@ search_app.controller("search_controller", function($scope) {
     $scope.name = "John";
 });
 
-search_app.controller('myCtrl', function($scope) {
-    $scope.showMe = false;
-    console.log('hooray');
-    $scope.myFunc = function() {
-        $scope.showMe = !$scope.showMe;
-    }
-});
-
 search_app.controller('main', function($scope, $log) {
 
     $scope.apperaMain = true;
     $scope.apperaHeroes = false;
+    $scope.apperaHeroSettings = false;
     $scope.apperaDeshboard = false;
-
     $scope.heroes = [
       {
         name : "Grosha",
-        id:"11"
+        id:1
       },{
         name : "ABBA",
-        id:"12"
+        id:2
       },{
         name : "GAsdeX",
-        id:"13"
+        id:3
       },{
         name : "Hooray",
-        id:"14"
+        id:4
       },{
         name : "Grosha",
-        id:"15"
+        id:5
       },{
         name : "ABBA",
-        id:"16"
+        id:6
       },{
         name : "GAsdeX",
-        id:"17"
+        id:7
       },{
         name : "Hooray",
-        id:"18"
+        id:8
       },{
         name : "Hooray",
-        id:"19"
+        id:9
       },{
         name : "Hooray",
-        id:"20"
+        id:10
       }
     ]
-    // console.log($scope.heroes[0]['id']);
     $scope.printHeroes = function(){
       var heroesArr =[]
       for (var i = 0; $scope.heroes[i]; i++){
@@ -60,28 +51,39 @@ search_app.controller('main', function($scope, $log) {
           console.log(heroesArr[i]);
         }
       }
-      console.log(heroesArr);
+      // console.log(heroesArr);
       return heroesArr;
     }
     $scope.heroes_4 = $scope.printHeroes()
-//displaying of forms
+
+    //displaying of forms
 
     $scope.showHeroes = function () {
       $scope.apperaMain = false;
       $scope.apperaHeroes = true;
+      $scope.apperaHeroSettings = false;
       console.log('hhh');
     }
+
     $scope.showMain = function () {
       $scope.apperaMain = true;
       $scope.apperaHeroes = false;
-      console.log('hhh');
+      $scope.apperaHeroSettings = false;
     }
 
-    $scope.clickCard = function () {
-      $('ul li').click(function() {
-        var target = $(this).attr('data-name');
-      }
-      console.log($('#hroes-cards li').attr('data-options'));
+    $scope.clickCard = function(hero) {
+      console.log(hero.id);
+      $scope.apperaHeroSettings = true;
+      $scope.apperaMain = false;
+      $scope.apperaHeroes = false;
+      $scope.hero = hero;
     }
 
+    $scope.addHero = function() {
+      $scope.heroes.push({name:$scope.newHero,id: ($scope.heroes.length+1)})
+      console.log($scope.heroes[$scope.heroes.length]);
+    }
+
+    // console.log($scope.nameTossearch);
+    
 });

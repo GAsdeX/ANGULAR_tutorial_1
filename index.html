@@ -11,7 +11,7 @@
         <title>Document</title>
     </head>
     <body>
-        <div class="wrapper" ng-app="Heroes" ng-controller="myCtrl">
+        <div class="wrapper" ng-app="Heroes" >
             <div class="" ng-controller="main">
                 <h1>Tour of Heroes</h1>
                 <button type="button" name="button" ng-click="showMain()" ng-model="showDeshboard">Dashboard</button>
@@ -20,32 +20,49 @@
                     <div class="heroes">
                         <h4>Top heroes</h2>
                         <ul class="heroes-arr" id = "hroes-cards">
-                            <li ng-repeat="heroe in heroes_4" ng-click="clickCard()" data-options={{heroe.id}}>
-                                <p class="entry">{{heroe.name}}</p>
+                            <li ng-repeat="hero in heroes_4" ng-click="clickCard(hero)" data-options={{heroe.id}}>
+                                <p class="entry">{{hero.name}}</p>
                             </li>
                         </ul>
                     </div>
                     <div class="heroes-search" ng-controller="search_controller">
                         <h4>Heroes serch</h2>
-                        <input type="text" ng-model="name">
+                        <input type="text" ng-model="nameToSsearch">
+                        <ul class="content-to-display" ng-show="nameToSsearch">
+                          <li ng-repeat="hero in heroes | filter: nameToSsearch" ng-click ="clickCard(hero)">
+                            <p>{{hero.name}}</p>
+                          </li>
+                        </ul>
                     </div>
                 </div>
                 <div class="my-heroes" ng-show="apperaHeroes">
                     <h4>My heroes</h4>
+                    <div class="add-hero">
+                      <div class="name">Hero name: </div>
+                      <input type="text" ng-model="newHero"></input>
+                      <button type="button" name="button" ng-click="addHero()">Add</button>
+                    </div>
                     <ul>
-                        <li ng-repeat="heroe in heroes">
+                        <li ng-repeat="hero in heroes" ng-click ="clickCard(hero)">
                             <div class="descr">
-                                <div class="id">{{heroe.id}}</div>
-                                <div class="name">{{heroe.name}}</div>
+                                <div class="id">{{hero.id}}</div>
+                                <div class="name">{{hero.name}}</div>
                             </div>
                         </li>
                     </ul>
                 </div>
-                <div class="" ng-show="apperaDeshboard">
-                    dasdcsdfc
+                <div class="heroe-settings" ng-model='hero' ng-show="apperaHeroSettings">
+                  <h2 class="hero-name">{{hero.name}} details!</h2>
+                  <div class="settings">
+                    <div class="before">id:</div>
+                    <div class="hero-id">{{hero.id}}</div>
+                  </div>
+                  <div class="settings">
+                    <div class="before">name:</div>
+                    <input ng-model="heroes[hero.id-1].name"></input>
+                  </div>
                 </div>
             </div>
-
         </div>
     </body>
     <script src="" type="text/javascript"/>
