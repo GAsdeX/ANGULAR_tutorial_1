@@ -12,15 +12,15 @@
     </head>
     <body>
         <div class="wrapper" ng-app="Heroes" >
-            <div class="" ng-controller="main">
+            <div class="" ng-controller="main" ng-init="currentWindow=1">
                 <h1>Tour of Heroes</h1>
                 <button type="button" name="button" ng-click="showMain()" ng-model="showDeshboard">Dashboard</button>
                 <button type="button" name="button" ng-click="showHeroes()">Heroes</button>
-                <div class="main-window" ng-show="apperaMain">
+                <div  class="main-window" ng-click="currentWindow=1" ng-show="apperaMain">
                     <div class="heroes">
                         <h4>Top heroes</h2>
                         <ul class="heroes-arr" id = "hroes-cards">
-                            <li ng-repeat="hero in heroes_4" ng-click="clickCard(hero)" data-options={{heroe.id}}>
+                            <li ng-repeat="hero in printHeroes()" ng-click="clickCard(hero)" data-options={{heroe.id}}>
                                 <p class="entry">{{hero.name}}</p>
                             </li>
                         </ul>
@@ -35,7 +35,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="my-heroes" ng-show="apperaHeroes">
+                <div  class="my-heroes" ng-click="currentWindow=2" ng-show="apperaHeroes">
                     <h4>My heroes</h4>
                     <div class="add-hero">
                       <div class="name">Hero name: </div>
@@ -43,13 +43,17 @@
                       <button type="button" name="button" ng-click="addHero()">Add</button>
                     </div>
                     <ul>
-                        <li ng-repeat="hero in heroes" ng-click ="clickCard(hero)">
-                            <div class="descr">
+                        <li ng-repeat="hero in heroes" >
+                            <div class="remove" ng-click="removeHero($index)">
+                              <img src="img/icon.png" alt="">
+                            </div>
+                            <div class="descr" ng-click ="clickCard(hero)">
                                 <div class="id">{{hero.id}}</div>
                                 <div class="name">{{hero.name}}</div>
                             </div>
                         </li>
                     </ul>
+                    <button class="back" type="button" ng-click="showMain()">Back</button>
                 </div>
                 <div class="heroe-settings" ng-model='hero' ng-show="apperaHeroSettings">
                   <h2 class="hero-name">{{hero.name}} details!</h2>
@@ -61,6 +65,7 @@
                     <div class="before">name:</div>
                     <input ng-model="heroes[hero.id-1].name"></input>
                   </div>
+                  <button class="back" type="button" ng-click="goBack()">Back</button>
                 </div>
             </div>
         </div>

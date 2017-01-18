@@ -48,13 +48,13 @@ search_app.controller('main', function($scope, $log) {
       for (var i = 0; $scope.heroes[i]; i++){
         if (i<4){
           heroesArr.push($scope.heroes[i])
-          console.log(heroesArr[i]);
+          // console.log(heroesArr[i]);
         }
       }
       // console.log(heroesArr);
       return heroesArr;
     }
-    $scope.heroes_4 = $scope.printHeroes()
+    console.log($scope.heroes);
 
     //displaying of forms
 
@@ -79,11 +79,32 @@ search_app.controller('main', function($scope, $log) {
       $scope.hero = hero;
     }
 
+    $scope.goBack = function() {
+      if ($scope.currentWindow == 1){$scope.showMain()}
+      if ($scope.currentWindow == 2){$scope.showHeroes()}
+    }
+
     $scope.addHero = function() {
       $scope.heroes.push({name:$scope.newHero,id: ($scope.heroes.length+1)})
       console.log($scope.heroes[$scope.heroes.length]);
     }
 
+    $scope.removeHero = function(x) {
+      console.log(x);
+      // $scope.heroes.splice(x,1);
+      console.log($scope.heroes.length - $scope.heroes[x].id);
+      $scope.heroes.splice(x,1);
+      var counter = 0;
+      for (x;$scope.heroes.length - $scope.heroes[x].id + 2; x++) {
+        $scope.heroes[x].id = $scope.heroes[x].id - 1;
+        counter++;
+      }
+      $scope.printHeroes();
+      console.log($scope.printHeroes());
+    };
+
+
+
     // console.log($scope.nameTossearch);
-    
+
 });
